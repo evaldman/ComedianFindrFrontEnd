@@ -13,6 +13,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
   }
   
 
@@ -66,3 +67,37 @@
      height: 350px;
      position: relative;
   }
+
+  /* #one-comic{
+    width: 600px
+    margin: 40px auto
+    background-color: #F7F7E9
+    color: #444
+    overflow: hidden // clearfix
+    box-shadow: 5px 5px 0 0 #aaa */
+  }
+  section#subnav {
+    padding: 20px;
+    width: 90%;
+    margin: 40px auto;
+  }
+  #subnav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  #subnav ul li {
+    list-style: none;
+    background:rgb(245, 245, 108);
+    color: #111 !important;
+    padding: 8px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    cursor: pointer;
+  }
+  #subnav ul li.active {
+    background: #03a9f4;
+    color: #fff !important;
+  }
+  
