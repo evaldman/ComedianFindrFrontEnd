@@ -1,12 +1,16 @@
 const url = "http://localhost:3000/comics"
 const comicBar = document.querySelector('.all-comics')
+const comicContainer = document.querySelector(".comic-container")
+const genresList = document.querySelector("#genre-list")
+
 const allComics = document.querySelector('#all-button')
 const genres = document.querySelector('#genre-button')
 const genreUrl = "http://localhost:3000/comedy_genres"
 
-allComics.addEventListener('click', fetchComicItems, {once:true})
+allComics.addEventListener('click', fetchComicItems)
 
 function fetchComicItems(){
+    genresList.innerHTML = ""
     fetch(url)
     .then(res => res.json())
     // .then(data => console.log(data))
@@ -23,9 +27,11 @@ function displayComic(item){
      comicBar.append(comicImg)
 }
 
-genres.addEventListener('click', fetchGenres, {once:true})
+genres.addEventListener('click', fetchGenres)
 
 function fetchGenres(){
+    comicBar.innerHTML = ""
+    comicContainer.innerHTML = ""
     fetch(genreUrl)
     .then(response => response.json())
     // .then(data => console.log(data))
@@ -33,25 +39,26 @@ function fetchGenres(){
     // reload()
 }
 
-function removeAll(){
-    document.getElementsByTagName("div").innerHTML = "";
-}
+// function removeAll(){
+//     comicBar.innerHTML = ""
+//     comicContainer.innerHTML = ""
+//     allGenres.innerHTML = ""
+// }
 
 const genreList = document.querySelector('#genre-list')
+
 function displayGenres(genre){
     // console.log(genre)
     // location.reload()
-    // removeAll()
     const genreLi = document.createElement('li')
     genreLi.dataset.id = genre.id
     genreLi.innerText = genre.genre_name
     genreList.append(genreLi)
 }
 
-comicBar.addEventListener('click', itemClick)
+comicBar.addEventListener('click', itemClick, {passive: true})
 
 function itemClick(event){
-    // console.log(event.target.dataset.id)
     if (event.toElement.localName === 'img'){
     const itemId = event.target.dataset.id
     fetch (`${url}/${itemId}`)
