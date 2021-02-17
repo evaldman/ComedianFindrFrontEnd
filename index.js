@@ -33,7 +33,7 @@ function addToFavs(event){
         })
     })
     .then(response => response.json())
-    .then(favData => console.log(favData))
+    .then(favData => displayFavComic(favData))
     
 }
 
