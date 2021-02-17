@@ -5,6 +5,8 @@
   
   body, html {
     height: 100%;
+    margin-left: 90px;
+  padding: 10px 10px;
   }
 
   .background {
@@ -16,14 +18,42 @@
     background-attachment: fixed;
   }
   
+  .sidenav {
+    height: 100%;
+    width: 190px;
+    position: fixed;
+    z-index: 1;
+    top: 1;
+    left: 0;
+    /* background-color: rgb(232, 233, 214); */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+    border-style: inset;
+    border-color:rgb(245, 245, 108)
+  }
+
+  .sidenav h1 {
+    padding: 0px 8px 6px 22px;
+    text-decoration: none;
+    font-size: 35px;
+    color: #dfe21f;
+    display: block;
+    text-decoration: underline;
+  }
+
+  .header-img {
+    width: 105%;
+    height: 130px;
+    background: url(images/logo.png);
+    background-size: cover;
+  }
 
   .main-header{
-    text-align: center;
-    background-color: gray;
-    opacity: 0.5;
-    /* color: yellow; */
-    padding: 5px;
-    width: 300px;
+    /* text-align: center; */
+    /* background-color: gray; */
+    opacity: 0.7;
+    padding: 0px 185px 6px 0px;
+    width: 800px;
     margin: auto;
     /* border: 3px res solid; */
   }
@@ -31,7 +61,8 @@
   #header-text{
       color: yellow;
       opacity: 1;
-      font-family: serif;
+      font-size: 40px;
+      /* font-family: serif; */
       
   }
   .all-comics {
@@ -63,29 +94,24 @@
   .comic-container {
     position: relative;
   }
+
   .comic-image {
      height: 350px;
      position: relative;
   }
 
-  /* #one-comic{
-    width: 600px
-    margin: 40px auto
-    background-color: #F7F7E9
-    color: #444
-    overflow: hidden // clearfix
-    box-shadow: 5px 5px 0 0 #aaa */
-  }
   section#subnav {
     padding: 20px;
     width: 90%;
     margin: 40px auto;
   }
+
   #subnav ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
   }
+
   #subnav ul li {
     list-style: none;
     background:rgb(245, 245, 108);
@@ -96,8 +122,54 @@
     letter-spacing: 1px;
     cursor: pointer;
   }
+
   #subnav ul li.active {
     background: #03a9f4;
     color: #fff !important;
   }
+
+#one-comic{
+  width: 550px;
+  margin: 40px auto;
+  background-color: #F7F7E9;
+  color: #444;
+  overflow: hidden;
+  box-shadow: 5px 5px 0 0 #aaa;
+}
+.name{
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+  background-color: #4DD65F;
+  animation: fadein 1.2s;
+}
+  
+.comic-image{
+    float: left;
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+    position: relative;
+    z-index: 1;
+    animation: grow 0.6s;
+}   
+.bio{
+  position: relative;
+  margin: 20px;
+  font-family: Merriweather Sans;
+  animation: slidein 1.2s;
+}
+
+.header-buttons a {
+  float: right;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 26px;
+  line-height: 25px;
+  border-radius: 4px;
+}
+      
+
   

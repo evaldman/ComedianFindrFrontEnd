@@ -13,8 +13,9 @@ const comicBio = document.querySelector('.bio')
 
 allComics.addEventListener('click', fetchComicItems)
 genresList.addEventListener('click', fetchOneGenre)
-
+comicDetail.style.display = 'none'
 function fetchComicItems(){
+    comicDetail.style.display = 'none'
     genresList.innerHTML = ""
     comicImage.src = ""
     comicImage.alt = ""
@@ -41,6 +42,7 @@ function displayComic(item){
 genres.addEventListener('click', fetchGenres)
 
 function fetchGenres(){
+    comicDetail.style.display = 'none'
     comicBar.innerHTML = ""
     comicImage.src = ""
     comicImage.alt = ""
@@ -81,6 +83,7 @@ function itemClick(event){
 }
 function displayOneComic(data){
     // console.log(data)
+    comicDetail.style.display = 'block'
     comicDetail.dataset.id = data.id
     comicImage.src = data.image
     comicImage.alt = data.name
