@@ -12,6 +12,7 @@ const comicVideo = document.querySelector('.video')
 const comicBio = document.querySelector('.bio')
 const favUrl = "http://localhost:3000/favorites"
 const favList = document.querySelector("#fav-list")
+const reviewUrl = "http://localhost:3000/reviews"
 
 allComics.addEventListener('click', fetchComicItems)
 genresList.addEventListener('click', fetchOneGenre)
@@ -94,20 +95,32 @@ function itemClick(event){
     fetch (`${url}/${itemId}`)
     .then(response => response.json())
     // .then(data => console.log(data))
-    .then(data => displayOneComic(data))
+    .then(comic => displayOneComic(comic))
     }
-    
+    Array.from(comicReviewUl.children).forEach(x => {
+        x.remove()})
 }
-function displayOneComic(data){
-    // console.log(data)
+
+const comicReviewUl = document.querySelector("#review-list")
+
+function displayOneComic(comic){
+    // console.log(comic)
     comicDetail.style.display = 'block'
-    comicDetail.dataset.id = data.id
-    comicImage.src = data.image
-    comicImage.alt = data.name
-    comicName.innerText = data.name
-    comicVideo.src = data.video
-    comicBio.innerText = data.bio
+    comicDetail.dataset.id = comic.id
+    comicImage.src = comic.image
+    comicImage.alt = comic.name
+    comicName.innerText = comic.name
+    comicVideo.src = comic.video
+    comicBio.innerText = comic.bio
+    comic.reviews.forEach(oneReview => displayReview(oneReview))
 }
+
+function displayReview(oneReview){
+    const comicReviewLi = document.createElement("li")
+    comicReviewLi.textContent = oneReview.content
+    comicReviewUl.append(comicReviewLi)
+}
+
 
 genresList.addEventListener('click', fetchOneGenre)
 
