@@ -1,22 +1,42 @@
 const url = "http://localhost:3000/comics"
+const reviewUrl = "http://localhost:3000/reviews"
+const favUrl = "http://localhost:3000/favorites"
+const genreUrl = "http://localhost:3000/comedy_genres"
 const comicBar = document.querySelector('.all-comics')
 const comicContainer = document.querySelector(".comic-container")
 const genresList = document.querySelector("#genre-list")
 const allComics = document.querySelector('#all-button')
 const genres = document.querySelector('#genre-button')
-const genreUrl = "http://localhost:3000/comedy_genres"
 const comicDetail = document.querySelector('#one-comic')
 const comicImage = document.querySelector('.comic-image')
 const comicName = document.querySelector('.name')
 const comicVideo = document.querySelector('.video')
 const comicBio = document.querySelector('.bio')
-const favUrl = "http://localhost:3000/favorites"
 const favList = document.querySelector("#fav-list")
-const reviewUrl = "http://localhost:3000/reviews"
+const heartBtn = document.querySelector(".heart")
+
 
 allComics.addEventListener('click', fetchComicItems)
 genresList.addEventListener('click', fetchOneGenre)
+heartBtn.addEventListener('click', addToFavs)
 comicDetail.style.display = 'none'
+
+function addToFavs(event){
+    const comicId = comicDetail.dataset.id
+    // const comicName = document.querySelector("h3.name").innerHTML
+    fetch(favUrl, {
+        method: 'POST',
+        headers: {'Content-Type': "application/json"},
+        body: JSON.stringify({
+            user_id: 1,
+            comic_id: comicId
+        })
+    })
+    .then(response => response.json())
+    .then(favData => console.log(favData))
+    
+}
+
 
 function fetchFavList() {
     fetch(favUrl)
@@ -28,7 +48,8 @@ fetchFavList()
 
 function displayFavComic(fav){
     const favLi = document.createElement("li")
-    favLi.textContent = fav.comic.name
+    favLi.className = "one-fav"
+    favLi.textContent = fav.comic_name
     favLi.dataset.id = fav.id
     favList.append(favLi)
 }
