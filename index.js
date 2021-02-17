@@ -10,10 +10,28 @@ const comicImage = document.querySelector('.comic-image')
 const comicName = document.querySelector('.name')
 const comicVideo = document.querySelector('.video')
 const comicBio = document.querySelector('.bio')
+const favUrl = "http://localhost:3000/favorites"
+const favList = document.querySelector("#fav-list")
 
 allComics.addEventListener('click', fetchComicItems)
 genresList.addEventListener('click', fetchOneGenre)
 comicDetail.style.display = 'none'
+
+function fetchFavList() {
+    fetch(favUrl)
+    .then(response => response.json())
+    .then(favData => favData.forEach(fav => displayFavComic(fav)))
+}
+
+fetchFavList()
+
+function displayFavComic(fav){
+    const favLi = document.createElement("li")
+    favLi.textContent = fav.comic.name
+    favLi.dataset.id = fav.id
+    favList.append(favLi)
+}
+
 function fetchComicItems(){
     comicDetail.style.display = 'none'
     genresList.innerHTML = ""
@@ -35,8 +53,7 @@ function displayComic(item){
     comicImg.src = item.image
     comicImg.dataset.id = item.id
     // console.log(comicImg)
-
-     comicBar.append(comicImg)
+    comicBar.append(comicImg)
 }
 
 genres.addEventListener('click', fetchGenres)
@@ -106,8 +123,7 @@ function fetchOneGenre(event){
 }
 
 function displayOneGenre(comic){
-    console.log(comic)
-  
+    // console.log(comic)
     const comicImg = document.createElement("img")
     comicImg.src = comic.image
     comicImg.dataset.id = comic.id
