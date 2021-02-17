@@ -171,5 +171,30 @@
   border-radius: 4px;
 }
       
+.heart{
+  color: #989898;
+  margin-top: 15px;
+  margin-left: 500px;
+  font-size: 30px;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 30px;
+  padding: 0px;
+  text-align: center;
+  cursor: pointer;
+}
 
+/* .heart-active{
+  color: #C50707;
+} */
+
+.heart:hover{
+  color: red;
+  background-color: #f9f9f9;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease-in-out;
+}
   
