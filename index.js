@@ -125,6 +125,7 @@ function displayFavComic(fav){
 }
 
 function fetchComicItems(){
+    // const imageDiv = document.createElement('div')
     comicDetail.style.display = 'none'
     genresList.innerHTML = ""
     comicImage.src = ""
@@ -132,6 +133,7 @@ function fetchComicItems(){
     comicName.innerHTML = ""
     comicVideo.src = ""
     comicBio.innerHTML = ""
+
     fetch(url)
     .then(res => res.json())
     .then(data => data.forEach(item => displayComic(item)))
@@ -194,6 +196,7 @@ function itemClick(event){
 
 function displayOneComic(comic){
     // console.log(comic)
+    comicReviewUl.innerHTML = ""
     comicDetail.style.display = 'block'
     comicDetail.dataset.id = comic.id
     comicImage.src = comic.image
