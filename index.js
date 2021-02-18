@@ -15,7 +15,6 @@ const comicBio = document.querySelector('.bio')
 const favList = document.querySelector("#fav-list")
 const heartBtn = document.querySelector(".heart")
 const reviewBox = document.querySelector(".form")
-const comicReviewUl = document.querySelector("#review-list") 
 
 
 comicDetail.style.display = 'none'
@@ -24,23 +23,12 @@ allComics.addEventListener('click', fetchComicItems)
 genresList.addEventListener('click', fetchOneGenre)
 heartBtn.addEventListener('click', addToFavs)
 favList.addEventListener('click', handleFavClick)
-comicReviewUl.addEventListener('click', reviewDelete)
+
+// function deleteFav(event){
+
+// }
+
 reviewBox.addEventListener('submit', createReview)
-
-function reviewDelete(event){
-    // console.log(event.target.dataset.id)
-    const revId = event.target.dataset.id
-    const revLi = event.target.closest('li')
-    if (event.target.className === 'review-delete-btn') {
-        revLi.remove() 
-    fetch(`${reviewUrl}/${revId}`, {
-        method: 'DELETE'
-    })
-
-    // .then(reviewData => displayReview(reviewData))
-}
-}
-
 function createReview(event){
     event.preventDefault()
     // console.log(event.target.querySelector('textarea').value)
@@ -55,7 +43,7 @@ function createReview(event){
         body: JSON.stringify(newReview)
     })
     .then(response => response.json())
-    .then(reviewData => displayReview(reviewData))
+    // .then(reviewData => )
     event.target.reset()
 }
 
@@ -175,7 +163,7 @@ function itemClick(event){
         x.remove()})
 }
 
-
+const comicReviewUl = document.querySelector("#review-list")
 
 function displayOneComic(comic){
     // console.log(comic)
@@ -190,15 +178,10 @@ function displayOneComic(comic){
 }
 
 function displayReview(oneReview){
-    const reviewDeleteBtn = document.createElement("button")
-    reviewDeleteBtn.className = "review-delete-btn"
-    reviewDeleteBtn.dataset.id = oneReview.id
-    reviewDeleteBtn.textContent = "💣"
     const comicReviewLi = document.createElement("li")
     comicReviewLi.dataset.id = oneReview.id
     comicReviewLi.textContent = oneReview.content
     comicReviewUl.append(comicReviewLi)
-    comicReviewLi.append(reviewDeleteBtn)
 }
 
 
@@ -237,7 +220,6 @@ function handleFavClick(event){
     else if (event.target.className === 'one-fav') {
         // console.log(event.target.id)
         const comicId = event.target.id
-        comicReviewUl.innerHTML = ""
         fetch(`${url}/${comicId}`)
             .then(response => response.json())
             .then(comic => displayOneComic(comic))

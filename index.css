@@ -6,14 +6,16 @@
   body, html {
     height: 100%;
     margin-left: 90px;
-  padding: 10px 10px;
+    padding: 10px 10px;
+    overflow-x: hidden;
   }
 
   .background {
-    background-image: url("https://i.pinimg.com/originals/0a/94/46/0a9446e9eb1c2343888253bd20d751fc.jpg");
+    background-image: url("https://d24fkeqntp1r7r.cloudfront.net/wp-content/uploads/2019/05/01052659/AdobeStock_239252608.jpeg");
+    background-color: black;
     height: 100%;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: repeat-x;
     background-size: cover;
     background-attachment: fixed;
   }
@@ -25,18 +27,18 @@
     z-index: 1;
     top: 1;
     left: 2px;
-    background-color: rgba(125, 53, 31, 0.432);
+    background-color: #641d1d59;
     overflow: scroll; /* Disable horizontal scroll */
     padding-top: 20px;
     border-style: inset;
-    border-color:rgb(245, 245, 108)
+    border-color: #cbcb91;
   }
 
   .sidenav h1 {
     padding: 0px 8px 6px 22px;
     text-decoration: none;
     font-size: 35px;
-    color: #dfe21f;
+    color: #cbcb91;
     display: block;
     text-decoration: underline;
   }
@@ -59,7 +61,7 @@
   }
 
   #header-text{
-      color: yellow;
+      color: #cbcb91;
       opacity: 1;
       font-size: 40px;
       /* font-family: serif; */
@@ -73,7 +75,7 @@
   }
   
   #all-button{
-    color: yellow;
+    color: #cbcb91;
     transition: .1s;
   }
 
@@ -82,7 +84,7 @@
   }
 
   #genre-button{
-    color: yellow;
+    color:#cbcb91;
     transition: .1s;
   }
 
@@ -142,10 +144,10 @@
 #one-comic{
   width: 550px;
   margin: 40px auto;
-  background-color: #8b432be7;
-  color: rgb(216, 204, 127);
+  background-color: #641d1d83;
+  color: #cbcb91;
   overflow: hidden;
-  box-shadow: 15px 15px 0 0 rgba(236, 228, 118, 0.767);
+  box-shadow: 15px 15px 0 0 #cbcb91a8;
 }
 .name{
   margin: 0;
@@ -211,14 +213,36 @@
 }
 
 .fav-delete{
-  background-color: rgb(219, 218, 183);
-  margin-left: 10px;
+  background-color: rgba(219, 218, 183, 0);
+  /* display: inline-block; */
+  position: absolute;
+  right: 10px;
+  font-size: 20px;
+  border: 0.6em;
+  border-radius: 60%;
+  width: 1.5em;
+  height: 1.5em;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.fav-delete:hover{
+  background-color: #f9f9f983;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease-in-out;
 }
 
 .one-fav{
-  color: rgb(245, 245, 108);
+  color: rgb(233, 233, 183);
+  font-size: 17px;
   transition: .1s;
   cursor: pointer;
+  padding-top: 20px;
+  /* position: absolute; */
+  left: 10px;
+  /* display: inline-block; */
 }
 
 .one-fave:hover{
@@ -226,9 +250,14 @@
 }
 
 .footer{
-  color: rgb(245, 245, 108);
+  color:#cbcb91;
   position: absolute;
   /* bottom: 10px; */
   width: 100%;
   height: 2.5rem;   
+}
+
+#fav-list{
+  padding-inline-start: 10px;
+  display: inline-block; 
 }
