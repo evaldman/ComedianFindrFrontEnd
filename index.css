@@ -131,7 +131,7 @@
 #one-comic{
   width: 550px;
   margin: 40px auto;
-  background-color: #F7F7E9;
+  background-color: #997666;
   color: #444;
   overflow: hidden;
   box-shadow: 15px 15px 0 0 rgb(236, 228, 118);
@@ -140,7 +140,7 @@
   margin: 0;
   padding: 20px;
   text-align: center;
-  background-color: #4DD65F;
+  background-color: #6699e4;
   animation: fadein 1.2s;
 }
   
@@ -197,4 +197,21 @@
   -o-transition: all 1s ease;
   transition: all 1s ease-in-out;
 }
-  
+
+.fav-delete{
+  background-color: rgb(245, 245, 108);
+  margin-left: 10px;
+}
+
+.one-fav{
+  color: rgb(245, 245, 108);
+}
+
+.footer{
+  color: rgb(245, 245, 108);
+  position: absolute;
+  /* bottom: 10px; */
+  width: 100%;
+  height: 2.5rem;   
+}
+

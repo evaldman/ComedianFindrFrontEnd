@@ -14,16 +14,45 @@ const comicVideo = document.querySelector('.video')
 const comicBio = document.querySelector('.bio')
 const favList = document.querySelector("#fav-list")
 const heartBtn = document.querySelector(".heart")
+const reviewBox = document.querySelector(".form")
 
+
+comicDetail.style.display = 'none'
 
 allComics.addEventListener('click', fetchComicItems)
 genresList.addEventListener('click', fetchOneGenre)
 heartBtn.addEventListener('click', addToFavs)
-comicDetail.style.display = 'none'
+favList.addEventListener('click', handleFavClick)
+
+// function deleteFav(event){
+
+// }
+
+reviewBox.addEventListener('submit', createReview)
+function createReview(event){
+    event.preventDefault()
+    // console.log(event.target.querySelector('textarea').value)
+    const content = event.target.querySelector('textarea').value
+    const comic_id = comicDetail.dataset.id
+    const user_id = 1
+    const newReview = {content, comic_id, user_id}
+
+    fetch(reviewUrl, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(newReview)
+    })
+    .then(response => response.json())
+    // .then(reviewData => )
+    event.target.reset()
+}
 
 function addToFavs(event){
+    // console.log(event)
     const comicId = comicDetail.dataset.id
-    // const comicName = document.querySelector("h3.name").innerHTML
+    // heartBtn.textContent = "❤️"
+    // if (event.target.className === 'heart') {
+    //     favLi.remove() 
     fetch(favUrl, {
         method: 'POST',
         headers: {'Content-Type': "application/json"},
@@ -33,8 +62,11 @@ function addToFavs(event){
         })
     })
     .then(response => response.json())
-    .then(favData => displayFavComic(favData))
-    
+   
+    // .then(favData => displayFavComic(favData))
+   fetchFavList()
+   Array.from(favList.children).forEach(x => {
+    x.remove()})
 }
 
 
@@ -42,16 +74,25 @@ function fetchFavList() {
     fetch(favUrl)
     .then(response => response.json())
     .then(favData => favData.forEach(fav => displayFavComic(fav)))
+
+    
 }
 
 fetchFavList()
 
 function displayFavComic(fav){
+    const deleteButton = document.createElement('button')
+    deleteButton.className = "fav-delete"
+    deleteButton.textContent = "💔"
+    deleteButton.dataset.id = fav.id
     const favLi = document.createElement("li")
     favLi.className = "one-fav"
     favLi.textContent = fav.comic_name
     favLi.dataset.id = fav.id
+    favLi.id = fav.comic.id
     favList.append(favLi)
+    favLi.append(deleteButton)
+    
 }
 
 function fetchComicItems(){
@@ -138,6 +179,7 @@ function displayOneComic(comic){
 
 function displayReview(oneReview){
     const comicReviewLi = document.createElement("li")
+    comicReviewLi.dataset.id = oneReview.id
     comicReviewLi.textContent = oneReview.content
     comicReviewUl.append(comicReviewLi)
 }
@@ -163,5 +205,25 @@ function displayOneGenre(comic){
     comicImg.dataset.id = comic.id
     // console.log(comicImg)
     comicBar.append(comicImg)
+}
+
+function handleFavClick(event){
+    // console.log(event)
+    const favId = event.target.dataset.id
+    const favLi = event.target.closest('li')
+    if (event.target.className === 'fav-delete') {
+        favLi.remove() 
+    fetch(`${favUrl}/${favId}`, {
+        method: 'DELETE'
+    })
+    }
+    else if (event.target.className === 'one-fav') {
+        // console.log(event.target.id)
+        const comicId = event.target.id
+        fetch(`${url}/${comicId}`)
+            .then(response => response.json())
+            .then(comic => displayOneComic(comic))
+       
+    }
 }
 
