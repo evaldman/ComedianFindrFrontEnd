@@ -74,11 +74,22 @@
   
   #all-button{
     color: yellow;
+    transition: .1s;
+  }
+
+  #all-button:hover{
+    color:#807a15
   }
 
   #genre-button{
     color: yellow;
+    transition: .1s;
   }
+
+  #genre-button:hover{
+    color:#807a15
+  }
+
 
   .all-comics img {
     flex: 0 1 auto;
@@ -140,7 +151,7 @@
   margin: 0;
   padding: 20px;
   text-align: center;
-  background-color: #6698e4bb;
+  background-color: #6698e4a1;
   animation: fadein 1.2s;
 }
   
@@ -180,7 +191,7 @@
   width: 40px;
   height: 40px;
   border-radius: 30px;
-  padding: 0px;
+  padding: .5px;
  
   text-align: center;
   cursor: pointer;
@@ -192,11 +203,11 @@
 
 .heart:hover{
   color: red;
-  background-color: #f9f9f9;
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  transition: all 1s ease-in-out;
+  background-color: #f9f9f983;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease-in-out;
 }
 
 .fav-delete{
@@ -206,6 +217,12 @@
 
 .one-fav{
   color: rgb(245, 245, 108);
+  transition: .1s;
+  cursor: pointer;
+}
+
+.one-fave:hover{
+  color:#58540f
 }
 
 .footer{
@@ -215,4 +232,3 @@
   width: 100%;
   height: 2.5rem;   
 }
-
