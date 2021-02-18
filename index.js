@@ -15,6 +15,7 @@ const comicBio = document.querySelector('.bio')
 const favList = document.querySelector("#fav-list")
 const heartBtn = document.querySelector(".heart")
 const reviewBox = document.querySelector(".form")
+const comicReviewUl = document.querySelector("#review-list")
 
 
 comicDetail.style.display = 'none'
@@ -23,12 +24,10 @@ allComics.addEventListener('click', fetchComicItems)
 genresList.addEventListener('click', fetchOneGenre)
 heartBtn.addEventListener('click', addToFavs)
 favList.addEventListener('click', handleFavClick)
-
-// function deleteFav(event){
-
-// }
+comicReviewUl.addEventListener('click', reviewDelete)
 
 reviewBox.addEventListener('submit', createReview)
+
 function createReview(event){
     event.preventDefault()
     // console.log(event.target.querySelector('textarea').value)
@@ -36,23 +35,32 @@ function createReview(event){
     const comic_id = comicDetail.dataset.id
     const user_id = 1
     const newReview = {content, comic_id, user_id}
-
     fetch(reviewUrl, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(newReview)
     })
     .then(response => response.json())
-    // .then(reviewData => )
+    .then(reviewData => displayReview(reviewData))
     event.target.reset()
+}
+
+function reviewDelete(event){
+    // console.log(event.target.dataset.id)
+    const revId = event.target.dataset.id
+    const revLi = event.target.closest('li')
+    if (event.target.className === 'review-delete-btn') {
+        revLi.remove()
+    fetch(`${reviewUrl}/${revId}`, {
+        method: 'DELETE'
+    })
+    // .then(reviewData => displayReview(reviewData))
+}
 }
 
 function addToFavs(event){
     // console.log(event)
     const comicId = comicDetail.dataset.id
-    // heartBtn.textContent = "❤️"
-    // if (event.target.className === 'heart') {
-    //     favLi.remove() 
     fetch(favUrl, {
         method: 'POST',
         headers: {'Content-Type': "application/json"},
@@ -62,11 +70,8 @@ function addToFavs(event){
         })
     })
     .then(response => response.json())
-   
-    // .then(favData => displayFavComic(favData))
-   fetchFavList()
-   Array.from(favList.children).forEach(x => {
-    x.remove()})
+    .then(favData => displayFavComic(favData))
+
 }
 
 
@@ -163,8 +168,6 @@ function itemClick(event){
         x.remove()})
 }
 
-const comicReviewUl = document.querySelector("#review-list")
-
 function displayOneComic(comic){
     // console.log(comic)
     comicDetail.style.display = 'block'
@@ -178,10 +181,15 @@ function displayOneComic(comic){
 }
 
 function displayReview(oneReview){
+    const reviewDeleteBtn = document.createElement("button")
+    reviewDeleteBtn.className = "review-delete-btn"
+    reviewDeleteBtn.dataset.id = oneReview.id
+    reviewDeleteBtn.textContent = "💣"
     const comicReviewLi = document.createElement("li")
     comicReviewLi.dataset.id = oneReview.id
     comicReviewLi.textContent = oneReview.content
     comicReviewUl.append(comicReviewLi)
+    comicReviewLi.append(reviewDeleteBtn)
 }
 
 
