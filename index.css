@@ -12,7 +12,7 @@
   }
 
   .background {
-    background-image: url("https://d24fkeqntp1r7r.cloudfront.net/wp-content/uploads/2019/05/01052659/AdobeStock_239252608.jpeg");
+    background-image: url("images/stage\ stool\ mic.jpeg");
     background-color: black;
     height: 100%;
     background-position: center;
@@ -79,7 +79,8 @@
     z-index: 1;
     top: 1;
     left: 2px;
-    background-image: url("images/brick2.png");
+    background-image: url("https://media.istockphoto.com/photos/black-brick-wall-picture-id923451472?k=6&m=923451472&s=612x612&w=0&h=XjeqoQSnpE9IGpIZcfWuNq4KIwfSQpgPdMcwuh5sxio=");
+    size: contain;
     background-color: #97343468;
     overflow: scroll; /* Disable horizontal scroll */
     border-style: inset;
@@ -167,24 +168,26 @@
     padding: 20px;
     width: 90%;
     margin: 40px auto;
+
   }
 
   #subnav ul {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: left;
+    
   }
 
   #subnav ul li {
     list-style: none;
     background:#641d1da8;
-    color: #cbcb91 !important;
+    color: #e7e7d0 !important;
     padding: 8px 20px;
     margin: 5px;
     border-radius: 5px;
     letter-spacing: 1px;
     cursor: pointer;
-    font-size: 30px
+    font-size: 20px;
   }
 
   #subnav ul li.active {
@@ -285,6 +288,32 @@
   transition: all .3s ease-in-out;
 }
 
+.review-delete-btn{
+  color: #989898;
+  background-color: rgba(255, 0, 0, 0);
+  margin-top: 0px;
+  margin-left: 0px;
+  font-size: 20px;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 30px;
+  padding: .5px;
+  text-align: center;
+  cursor: pointer;
+  border: 0.6em;
+  box-sizing: border-box;
+
+}
+
+.review-delete-btn:hover{
+  background-color: #f9f9f9;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease-in-out;
+}
+
 .favorites-img{
   width: 175px;
   opacity: 0.8;
@@ -315,4 +344,8 @@
   padding-inline-start: 10px;
   display: inline-block; 
   opacity: 0.9;
+}
+
+#review-list{
+  font-size: 20px;
 }

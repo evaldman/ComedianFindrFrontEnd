@@ -45,10 +45,12 @@ function logoutUser(event){
 
 function loginUser(event){
     // console.log(event)
+    event.preventDefault()
     if (event.target.value === 'Login') {
     sideNav.style.display = 'block'
     headerButtons.style.display = 'block'
     login.style.display = 'none'
+    console.log(event.target.value)
     }
 }
 
