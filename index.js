@@ -16,17 +16,41 @@ const favList = document.querySelector("#fav-list")
 const heartBtn = document.querySelector(".heart")
 const reviewBox = document.querySelector(".form")
 const comicReviewUl = document.querySelector("#review-list")
+const login = document.querySelector('.login-container')
+const genreList = document.querySelector('#genre-list')
+const sideNav = document.querySelector(".sidenav")
+const headerButtons = document.querySelector(".header-buttons")
+const logout = document.querySelector("#logout-button")
 
-
+// login.style.display = 'none'
 comicDetail.style.display = 'none'
+sideNav.style.display = 'none'
+headerButtons.style.display = 'none'
 
 allComics.addEventListener('click', fetchComicItems)
 genresList.addEventListener('click', fetchOneGenre)
 heartBtn.addEventListener('click', addToFavs)
 favList.addEventListener('click', handleFavClick)
 comicReviewUl.addEventListener('click', reviewDelete)
-
 reviewBox.addEventListener('submit', createReview)
+genres.addEventListener('click', fetchGenres)
+comicBar.addEventListener('click', itemClick)
+genresList.addEventListener('click', fetchOneGenre)
+login.addEventListener('click', loginUser)
+logout.addEventListener('click', logoutUser)
+
+function logoutUser(event){
+   location.reload()
+}
+
+function loginUser(event){
+    // console.log(event)
+    if (event.target.value === 'Login') {
+    sideNav.style.display = 'block'
+    headerButtons.style.display = 'block'
+    login.style.display = 'none'
+    }
+}
 
 function createReview(event){
     event.preventDefault()
@@ -124,7 +148,7 @@ function displayComic(item){
     comicBar.append(comicImg)
 }
 
-genres.addEventListener('click', fetchGenres)
+
 
 function fetchGenres(){
     comicDetail.style.display = 'none'
@@ -142,7 +166,7 @@ function fetchGenres(){
             x.remove()})
 }
 
-const genreList = document.querySelector('#genre-list')
+
 
 function displayGenres(genre){
     // console.log(genre)
@@ -154,7 +178,7 @@ function displayGenres(genre){
     
 }
 
-comicBar.addEventListener('click', itemClick)
+
 
 function itemClick(event){
     if (event.toElement.localName === 'img'){
@@ -193,7 +217,7 @@ function displayReview(oneReview){
 }
 
 
-genresList.addEventListener('click', fetchOneGenre)
+
 
 function fetchOneGenre(event){ 
     if (event.toElement.localName === 'li'){

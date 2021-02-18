@@ -20,6 +20,57 @@
     background-size: cover;
     background-attachment: fixed;
   }
+  .login-header {
+    margin: 0 auto 40px;
+    color: #fff;
+    font: 20px Helvetica;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+  
+  .login-form label {
+      position: relative;
+      display: block;
+  }
+  .login-form input {
+        font: 18px Helvetica, Arial, sans-serif;
+        box-sizing: border-box;
+        display: block;
+        border: none;
+        padding: 20px;
+        width: 300px;
+        margin-bottom: 20px;
+        font-size: 18px;
+        outline: none;
+        transition: all 0.2s ease-in-out;
+  }  
+  .login-form input::placeholder {
+          transition: all 0.2s ease-in-out;
+          color: #999;
+          font: 18px Helvetica, Arial, sans-serif;
+        }
+      
+      
+  .login-form span {
+        color: #35dc9b;
+        font: 13px Helvetica, Arial, sans-serif;
+        position: absolute;
+        top: 0px;
+        left: 20px;
+        opacity: 0;
+        transition: all 0.2s ease-in-out;
+      }
+    
+    
+  .login-form input[type="submit"] {
+      transition: all 0.2s ease-in-out;
+      font: 18px Helvetica, Arial, sans-serif;
+      border: none;
+      background: #1aaf75;
+      color: #fff;
+      padding: 16px 40px;
+      
+  }
   
   .sidenav {
     height: 500px;
@@ -76,28 +127,15 @@
     margin: 1rem 0;
     max-width: calc(100vw - 2rem);
   }
-  
-  #all-button{
-    color: #cbcb91;
-    transition: .1s;
-  }
-
-  #all-button:hover{
-    color:#807a15
-  }
 
   .all-comics-img{
     width: 200px;
     opacity: 0.8;
   }
 
-  #genre-button{
-    color:#cbcb91;
-    transition: .1s;
-  }
-
-  #genre-button:hover{
-    color:#807a15
+  .logout-img{
+    width: 165px;
+    opacity: 0.6;
   }
 
   .genres-img{

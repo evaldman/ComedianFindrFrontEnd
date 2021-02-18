@@ -9,6 +9,7 @@
   <script src="index.js" defer></script>
 </head>
 <body class="background"> 
+
   <div class="box-1">
     <header class="main-header">
       <!-- <h1 id ="header-text">⼕ㄖ爪🝗ᗪ讠闩𝓝 千讠𝓝ᗪ尺</h1> -->
@@ -17,6 +18,20 @@
     </main>
     </header>
   </div>
+  <div class="login-container">
+    <h1 class="login-header">LOGIN</h1>
+  <form class="login-form">
+   <label>
+      <input id="username" type="text" placeholder="Enter Userame">
+      <span>Username</span>
+    </label>
+    <label>
+      <input type="password" placeholder="Enter Password">
+      <span>Password</span>
+    </label>
+      <input type="submit" value="Login">
+  </form>
+</div>
   <div class="sidenav">
     <h1>
       <img class="favorites-img" src="images/favorites.png" alt="favorites">
@@ -26,6 +41,9 @@
     </ul>
   </div>
   <div class="header-buttons">
+    <a id="logout-button" href="#">
+      <img class="logout-img" src="images/logout.png" alt="logout">
+    </a>
     <a id="genre-button" href="#">
       <img class="genres-img" src="images/genres.png" alt="genres">
     </a>
