@@ -10,7 +10,7 @@ log in, search for comics based on genre, "favorite" a comic, and leave a review
 Installation:
 - Fork and clone this repository
 - "bundle install" if necessary 
-- Open ComedianFindr Backend
+- [Open ComedianFindr Backend](https://github.com/evaldman/ComedianFindrBackEnd)
 - Run "rails s" in the terminal 
 - Open the ComedianFindr Frontend
 - Run "open index.html" 
