@@ -210,7 +210,7 @@ function displayOneComic(comic){
     comicImage.alt = comic.name
     comicName.innerText = comic.name
     comicVideo.src = comic.video
-    comicBio.innerText = comic.bio
+    comicBio.innerText = `Bio: \n ${comic.bio} \n\n Upcoming Shows: \n ${comic.tour_date}`
     comic.reviews.forEach(oneReview => displayReview(oneReview))
 }
 
