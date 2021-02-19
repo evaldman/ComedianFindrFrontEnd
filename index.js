@@ -21,6 +21,7 @@ const genreList = document.querySelector('#genre-list')
 const sideNav = document.querySelector(".sidenav")
 const headerButtons = document.querySelector(".header-buttons")
 const logout = document.querySelector("#logout-button")
+const genreNameContainer = document.querySelector(".genre-name-container")
 
 // login.style.display = 'none'
 comicDetail.style.display = 'none'
@@ -233,9 +234,8 @@ function fetchOneGenre(event){
     if (event.toElement.localName === 'li'){
         genresList.innerHTML = ""
         const genreId = event.target.dataset.id
-        const genreName = document.createElement('div')
-        genreName.dataset.id = event.target.dataset.id
-        comicBar.append(genreName)
+        const genreName = `${event.target.innerText}:`
+        genreNameContainer.append(genreName)
         fetch (`${genreUrl}/${genreId}`)
         .then(response => response.json())
         // .then(data => console.log(data))
@@ -247,10 +247,14 @@ function fetchOneGenre(event){
 function displayOneGenre(comic){
     // console.log(comic)
     const comicImg = document.createElement("img")
+    comicImg.className = "name-hide2"
     comicImg.src = comic.image
     comicImg.dataset.id = comic.id
+    const comicName = document.createElement("div")
+    comicName.className = "hide2"
+    comicName.innerText = comic.name
     // console.log(comicImg)
-    comicBar.append(comicImg)
+    comicBar.append(comicImg, comicName)
 }
 
 function handleFavClick(event){

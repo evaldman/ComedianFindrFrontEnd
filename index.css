@@ -158,6 +158,17 @@
     font-family: Futura;
   }
 
+
+  .hide2 {
+    display: none;
+  }
+      
+  .name-hide2:hover + .hide2 {
+    display: block;
+    color: red;
+    font-family: Futura;
+  }
+
   .logout-img{
     width: 165px;
     opacity: 0.7;
@@ -178,6 +189,13 @@
     position: relative;
   }
 
+  .genre-name-container {
+    font-family: Futura;
+    color: rgb(239, 243, 202);
+    font-size: 30px;
+    text-decoration: underline;
+    font-weight: bold;
+  }
 
   #subnav {
     padding: 40px;
