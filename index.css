@@ -82,10 +82,12 @@
     background-image: url("https://media.istockphoto.com/photos/black-brick-wall-picture-id923451472?k=6&m=923451472&s=612x612&w=0&h=XjeqoQSnpE9IGpIZcfWuNq4KIwfSQpgPdMcwuh5sxio=");
     size: contain;
     background-color: #97343468;
-    overflow: scroll; /* Disable horizontal scroll */
+    overflow: scroll;
     border-style: inset;
     border-color: #cbcb91;
   }
+  .sidenav::-webkit-scrollbar { 
+    width: 0 !important }
 
   .sidenav h1 {
     padding: 0px 15px 0px 9px;
@@ -151,9 +153,9 @@
     cursor: pointer;
   }
   
-  .all-comics img:last-child {
+  /* .all-comics img:last-child {
     margin-right: 0;
-  }
+  } */
 
   .comic-container {
     position: relative;
@@ -164,8 +166,8 @@
      position: relative;
   }
 
-  section#subnav {
-    padding: 20px;
+  #subnav {
+    padding: 40px;
     width: 90%;
     margin: 40px auto;
 
@@ -209,6 +211,7 @@
   text-align: center;
   background-color: #6698e4a1;
   animation: fadein 1.2s;
+  font-family: Futura;
 }
   
 .comic-image{
@@ -223,7 +226,7 @@
 .bio{
   position: relative;
   margin: 20px;
-  font-family: Merriweather Sans;
+  font-family: Futura;
   animation: slidein 1.2s;
 }
 
@@ -326,6 +329,7 @@
   cursor: pointer;
   padding-bottom: 20px;
   left: 10px;
+  font-family: Futura;
 }
 
 .one-fave:hover{
@@ -348,4 +352,15 @@
 
 #review-list{
   font-size: 20px;
+}
+
+#review-list li {
+  list-style-type: none;
+}
+
+.review textarea{
+  font-family: Futura;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
 }

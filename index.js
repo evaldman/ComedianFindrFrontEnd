@@ -50,7 +50,7 @@ function loginUser(event){
     sideNav.style.display = 'block'
     headerButtons.style.display = 'block'
     login.style.display = 'none'
-    console.log(event.target.value)
+    // console.log(event.target.value)
     }
 }
 
