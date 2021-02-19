@@ -146,10 +146,14 @@ function fetchComicItems(){
 function displayComic(item){
     
     const comicImg = document.createElement("img")
+    comicImg.className = "name-hide"
     comicImg.src = item.image
     comicImg.dataset.id = item.id
+    const comicName = document.createElement("div")
+    comicName.className = "hide"
+    comicName.innerText = item.name
     // console.log(comicImg)
-    comicBar.append(comicImg)
+    comicBar.append(comicImg, comicName)
 }
 
 
@@ -225,14 +229,19 @@ function displayReview(oneReview){
 
 
 function fetchOneGenre(event){ 
+    // console.log(event.target.innerText)
     if (event.toElement.localName === 'li'){
         genresList.innerHTML = ""
         const genreId = event.target.dataset.id
+        const genreName = document.createElement('div')
+        genreName.dataset.id = event.target.dataset.id
+        comicBar.append(genreName)
         fetch (`${genreUrl}/${genreId}`)
         .then(response => response.json())
         // .then(data => console.log(data))
         .then(genreData => genreData.comics.forEach(comic => displayOneGenre(comic)))
     }
+   
 }
 
 function displayOneGenre(comic){
