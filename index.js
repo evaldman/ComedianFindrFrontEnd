@@ -72,7 +72,7 @@ function createReview(event){
 }
 
 function reviewDelete(event){
-    // console.log(event.target.dataset.id)
+    console.log(event)
     const revId = event.target.dataset.id
     const revLi = event.target.closest('li')
     if (event.target.className === 'review-delete-btn') {
@@ -220,7 +220,7 @@ function displayReview(oneReview){
     reviewDeleteBtn.textContent = "💣"
     const comicReviewLi = document.createElement("li")
     comicReviewLi.dataset.id = oneReview.id
-    comicReviewLi.textContent = oneReview.content
+    comicReviewLi.textContent = `${oneReview.content} - ${oneReview.username}`
     comicReviewUl.append(comicReviewLi)
     comicReviewLi.append(reviewDeleteBtn)
 }

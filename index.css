@@ -84,7 +84,7 @@
     background-color: #97343468;
     overflow: scroll;
     border-style: inset;
-    border-color: #cbcb91;
+    border-color: #e7e7c8;
   }
   .sidenav::-webkit-scrollbar { 
     width: 0 !important }
@@ -214,7 +214,7 @@
   width: 550px;
   margin: 40px auto;
   background-color: #641d1d83;
-  color: #cbcb91;
+  color: #d6d6a8;
   /* overflow: hidden; */
   box-shadow: 15px 15px 0 0 #cbcb91a8;
 }
