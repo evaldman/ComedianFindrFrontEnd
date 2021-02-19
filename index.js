@@ -105,9 +105,7 @@ function addToFavs(event){
 function fetchFavList() {
     fetch(favUrl)
     .then(response => response.json())
-    .then(favData => favData.forEach(fav => displayFavComic(fav)))
-
-    
+    .then(favData => favData.forEach(fav => displayFavComic(fav)))    
 }
 
 fetchFavList()
@@ -136,7 +134,7 @@ function fetchComicItems(){
     comicName.innerHTML = ""
     comicVideo.src = ""
     comicBio.innerHTML = ""
-
+    genreNameContainer.innerHTML = ""
     fetch(url)
     .then(res => res.json())
     .then(data => data.forEach(item => displayComic(item)))
@@ -167,6 +165,7 @@ function fetchGenres(){
     comicName.innerHTML = ""
     comicVideo.src = ""
     comicBio.innerHTML = ""
+    genreNameContainer.innerHTML = ""
     fetch(genreUrl)
     .then(response => response.json())
     // .then(data => console.log(data))
@@ -190,6 +189,7 @@ function displayGenres(genre){
 
 
 function itemClick(event){
+    comicBar.innerHTML = ""
     if (event.toElement.localName === 'img'){
     const itemId = event.target.dataset.id
     fetch (`${url}/${itemId}`)
@@ -233,6 +233,7 @@ function fetchOneGenre(event){
     // console.log(event.target.innerText)
     if (event.toElement.localName === 'li'){
         genresList.innerHTML = ""
+        genreNameContainer.innerHTML = ""
         const genreId = event.target.dataset.id
         const genreName = `${event.target.innerText}:`
         genreNameContainer.append(genreName)
@@ -259,6 +260,9 @@ function displayOneGenre(comic){
 
 function handleFavClick(event){
     // console.log(event)
+    genreNameContainer.innerHTML = ""
+    comicBar.innerHTML = ""
+    genreList.innerHTML = ""
     const favId = event.target.dataset.id
     const favLi = event.target.closest('li')
     if (event.target.className === 'fav-delete') {
