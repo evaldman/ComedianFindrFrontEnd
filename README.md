@@ -4,7 +4,7 @@
 ![alt text](images/genrepage.png)
 
 This single page app is a resource for comedy fans who want to find, follow and discover
-professional comedians based on the genre they are most closly associated with. Users can 
+professional comedians based on the genre they are most closely associated with. Users can 
 log in, search for comics based on genre, "favorite" a comic, and leave a review for them.
 
 Installation:
