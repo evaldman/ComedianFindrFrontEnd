@@ -26,7 +26,7 @@ Navigating the app:
 - You can favorite a comic by clicking the "🖤" at the top-right corner of that comic's detail 
   card. This comic will be added to the list of "Favorites" in the bar displayed on the left
   side of the window.
-- To remove a favorite, click the "💔" next to a given comic's name in your "Favorties" bar.
+- To remove a favorite, click the "💔" next to a given comic's name in your "Favorites" bar.
 - To leave a review, use the text area at the bottom of a comic's detail card and click submit.
   You will see your review displayed after submitting.
 - To delete a review, click the "💣" next to the review.
